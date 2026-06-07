@@ -20,7 +20,7 @@ Obsidian 插件 — 在 Vault 中直接预览和嵌入 HTML / MHTML 文件。
 
 ### 手动安装
 
-1. 下载 `plugins/html-viewer-plus/` 目录下的 [main.js](plugins/html-viewer-plus/main.js)、[manifest.json](plugins/html-viewer-plus/manifest.json)、[styles.css](plugins/html-viewer-plus/styles.css)
+1. 下载 [main.js](main.js)、[manifest.json](manifest.json)、[styles.css](styles.css)
 2. 在你的 Vault 中创建目录 `.obsidian/plugins/html-viewer-plus/`
 3. 将三个文件复制到该目录
 4. 重启 Obsidian，进入 设置 → 社区插件，启用 **HTML Viewer Plus**
@@ -89,9 +89,11 @@ Obsidian 插件 — 在 Vault 中直接预览和嵌入 HTML / MHTML 文件。
 
 ```
 html-viewer-plus/
-├── plugins/
-│   └── html-viewer-plus/   插件本体
-├── demos/                   示例 HTML 文件
+├── main.js              插件入口
+├── manifest.json        插件清单
+├── styles.css           样式
+├── assets/              赞赏二维码
+├── demos/               示例 HTML 文件
 ├── LICENSE
 └── README.md
 ```
