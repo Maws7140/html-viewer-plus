@@ -96,6 +96,12 @@ html-viewer-plus/
 └── README.md
 ```
 
+## 支持作者
+
+如果这个插件对你有帮助，欢迎请我喝杯咖啡 ☕
+
+<img src="assets/支付宝.jpg" width="200"> <img src="assets/微信.jpg" width="200">
+
 ## License
 
 [GPL-3.0](LICENSE)
