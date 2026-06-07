@@ -1,106 +1,95 @@
 # HTML Viewer Plus
 
-Obsidian 插件 — 在 Vault 中直接预览和嵌入 HTML / MHTML 文件。
+An Obsidian plugin for previewing and embedding HTML/MHTML files directly in your vault.
 
-## 功能
+[中文文档](assets/README_zh.md)
 
-- **嵌入预览** — 在 Markdown 中用 `![[file.html]]` 直接渲染 HTML
-- **元素定位** — `![[file.html#elementId]]` 只显示指定元素
-- **自定义尺寸** — `![[file.html|400]]` 设宽度，`![[file.html|400x300]]` 设宽高
-- **全屏 / 外部打开** — 嵌入视图一键全屏或用系统浏览器打开
-- **缩放** — Ctrl + 滚轮缩放，可调步长
-- **页内搜索** — Ctrl+F 在 HTML 内查找文本，自动跳转标签页
-- **暗色主题同步** — 跟随 Obsidian 暗色模式，支持自定义暗色 CSS
-- **热刷新** — HTML 文件修改后自动重新加载
-- **MHTML 支持** — 直接打开 .mht / .mhtml 网页存档
-- **右键菜单** — 右键点击 HTML 内容，快速复制嵌入/链接语法
-- **滚动保护** — 嵌入内容需先点击才可滚动，避免误触
+## Features
 
-## 安装
+- **Embed preview** — Render HTML inline with `![[file.html]]`
+- **Element targeting** — `![[file.html#elementId]]` shows only the specified element
+- **Custom sizing** — `![[file.html|400]]` for width, `![[file.html|400x300]]` for width × height
+- **Fullscreen / Open externally** — Fullscreen or open in system browser
+- **Zoom** — Ctrl + scroll to zoom, adjustable step
+- **In-page search** — Ctrl+F to search text within HTML, auto-switches tabs
+- **Dark theme sync** — Follows Obsidian dark mode with custom CSS support
+- **Hot refresh** — Auto-reload when HTML file changes
+- **MHTML support** — Open .mht/.mhtml web archives directly
+- **Right-click menu** — Right-click HTML to copy embed/link syntax
+- **Scroll guard** — Click to activate scrolling, prevents accidental scroll
 
-### 手动安装
+## Installation
 
-1. 下载 [main.js](main.js)、[manifest.json](manifest.json)、[styles.css](styles.css)
-2. 在你的 Vault 中创建目录 `.obsidian/plugins/html-viewer-plus/`
-3. 将三个文件复制到该目录
-4. 重启 Obsidian，进入 设置 → 社区插件，启用 **HTML Viewer Plus**
+### Manual
 
-### BRAT（可选）
+1. Download [main.js](main.js), [manifest.json](manifest.json), [styles.css](styles.css)
+2. Create `.obsidian/plugins/html-viewer-plus/` in your vault
+3. Copy the three files into that directory
+4. Restart Obsidian, go to Settings → Community plugins, enable **HTML Viewer Plus**
 
-暂未发布到 Obsidian 社区市场，可通过 [BRAT](https://github.com/TfTHacker/obsidian42-brat) 安装：
+### BRAT
 
-1. 安装 BRAT 插件
-2. BRAT 设置 → Add Beta Plugin → 输入仓库地址 `kuaile1407/html-viewer-plus`
-3. 启用插件
+Not yet on the community marketplace. Install via [BRAT](https://github.com/TfTHacker/obsidian42-brat):
 
-## 使用
+1. Install the BRAT plugin
+2. BRAT Settings → Add Beta Plugin → enter `kuaile1407/html-viewer-plus`
+3. Enable the plugin
 
-### 嵌入到笔记
+## Usage
+
+### Embed in notes
 
 ```markdown
-![[demo.html]]              默认宽度和宽高比
-![[demo.html|600]]          宽度 600px
-![[demo.html|600x400]]      宽 600px × 高 400px
-![[demo.html#chart]]         只显示 id="chart" 的元素
+![[demo.html]]              default width and aspect ratio
+![[demo.html|600]]          width 600px
+![[demo.html|600x400]]      600px × 400px
+![[demo.html#chart]]         show only id="chart" element
 ```
 
-### 直接打开
+### Direct open
 
-在文件管理器中点击 HTML 文件，以独立视图打开，工具栏提供缩放、搜索、刷新、外部打开。
+Click an HTML file in the file explorer to open it in a dedicated view with zoom, search, refresh, and open-externally controls.
 
-### 工具栏
+### Toolbar
 
-| 按钮 | 嵌入模式 | 直接打开 |
-|------|---------|---------|
-| ⛶ | 全屏 | — |
-| ＋ / － | — | 缩放 |
-| ↺ | — | 重置缩放 |
-| 🔍 | — | 搜索 |
-| ↻ | — | 刷新 |
-| ↗ | 外部打开 | 外部打开 |
-| → | 定位到文件 | — |
+| Button | Embed mode | Direct open |
+|--------|-----------|-------------|
+| ⛶ | Fullscreen | — |
+| ＋ / － | — | Zoom in/out |
+| ↺ | — | Reset zoom |
+| 🔍 | — | Search |
+| ↻ | — | Refresh |
+| ↗ | Open externally | Open externally |
+| → | Locate in file | — |
 
-### 右键菜单
+### Right-click menu
 
-在 HTML 内容上右键，显示当前元素及其祖先的 ID 列表，点击可复制嵌入语法到剪贴板。
+Right-click on HTML content to see ancestor elements with IDs. Click to copy embed syntax to clipboard.
 
-## 设置
+## Settings
 
-| 选项 | 默认值 | 说明 |
-|------|-------|------|
-| 默认宽度 | 100% | 嵌入区域的默认宽度 |
-| 宽高比 | 4/3 | 支持 `4/3`、`16:9`、`1.33` 等格式 |
-| 显示工具栏 | 开 | 嵌入视图右下角操作按钮 |
-| 启用缩放 | 开 | 直接打开时的缩放功能 |
-| 缩放步长 | 0.1 | 每次滚动的缩放比例 |
-| 启用搜索 | 开 | 直接打开时的搜索功能 |
-| 同步暗色主题 | 开 | 自动注入暗色 CSS |
-| 自定义暗色 CSS | — | 追加到默认暗色样式之后 |
-| 自定义背景色 | 关 | 强制设置 HTML body 背景色 |
-| 热刷新 | 关 | 文件修改时自动重载 |
-| MHTML 支持 | 开 | 支持 .mht/.mhtml 文件 |
+| Option | Default | Description |
+|--------|---------|-------------|
+| Default width | 100% | Embed area default width |
+| Aspect ratio | 4/3 | Supports `4/3`, `16:9`, `1.33` |
+| Show toolbar | On | Action buttons on embed view |
+| Enable zoom | On | Zoom in direct open mode |
+| Zoom step | 0.1 | Zoom increment per scroll |
+| Enable search | On | Search in direct open mode |
+| Sync dark theme | On | Auto-inject dark CSS |
+| Custom dark CSS | — | Appended after default dark styles |
+| Custom background | Off | Force HTML body background color |
+| Hot refresh | Off | Auto-reload on file change |
+| MHTML support | On | Support .mht/.mhtml files |
 
-## 支持的格式
+## Supported formats
 
 - HTML: `.html` `.htm` `.shtml` `.xht` `.xhtml`
 - MHTML: `.mht` `.mhtml`
 
-## 仓库结构
+## Support the author
 
-```
-html-viewer-plus/
-├── main.js              插件入口
-├── manifest.json        插件清单
-├── styles.css           样式
-├── assets/              赞赏二维码
-├── demos/               示例 HTML 文件
-├── LICENSE
-└── README.md
-```
-
-## 支持作者
-
-如果这个插件对你有帮助，欢迎请我喝杯咖啡 ☕
+If this plugin helps you, consider buying me a coffee ☕
 
 <img src="assets/支付宝.jpg" width="200"> <img src="assets/微信.jpg" width="200">
 
